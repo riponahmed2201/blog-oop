@@ -1,3 +1,22 @@
+<?php 
+session_start();
+
+    if(isset($_SESSION['username'])) {
+        header('location:index.php');
+    }
+
+    require_once '../vendor/autoload.php';
+
+    $login = new App\classes\Login();
+
+    if (isset($_POST['login'])) {
+
+      $login_error =   $login->loginCheck($_POST);
+
+    }
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,26 +45,21 @@
 <body class="login-body">
 
 <div class="container">
-
-    <form class="form-signin" action="">
+    <form class="form-signin" action="" method="POST">
         <h2 class="form-signin-heading">login now</h2>
         <div class="login-wrap">
-            <input type="text" class="form-control" placeholder="User ID" autofocus>
-            <input type="password" class="form-control" placeholder="Password">
-            <button class="btn btn-lg btn-login btn-block" type="submit">Login</button>
+            <input type="text" class="form-control" name="username" placeholder="Username" autofocus>
+            <input type="password" class="form-control" name="password" placeholder="Password">
+            <p style="color: red"> <?= isset($login_error) ? $login_error : ''?> </p>
+            <button class="btn btn-lg btn-login btn-block" name="login" type="submit">Login</button>
         </div>
     </form>
 
 </div>
 
-
-
-<!-- js placed at the end of the document so the pages load faster -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 
 
 </body>
-
-<!-- Mirrored from thevectorlab.net/flatlab-4/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 04 Jul 2019 15:06:10 GMT -->
 </html>

@@ -3,15 +3,6 @@
     require_once '../vendor/autoload.php';
     $category = new App\classes\Category();
     $categories = $category->allCategory();
-
-    if (isset($_GET['active'])){
-        $id = $_GET['active'];
-        $category->active($id);
-    }
-    if (isset($_GET['inactive'])){
-        $id = $_GET['inactive'];
-        $category->inActive($id);
-    }
 ?>
 
     <div class="row">
@@ -46,14 +37,14 @@
                                     <td> <?= $row['status'] == 1 ? 'Active' : 'Inactive'?> </td>
                                     <td>
                                         <?php if ($row['status'] == 1) {?>
-                                            <a href="?inactive=<?=$row['id']?>" class="btn btn-warning btn-sm"> <i class="fa fa-arrow-down"></i> Inactive </a>
+                                            <a href="status.php?id=<?=$row['id']?>&cat=categories&inactive=inactive" class="btn btn-warning btn-sm"> <i class="fa fa-arrow-down"></i> Inactive </a>
                                             <?php
                                             }else{ ?>
-                                            <a href="?active=<?=$row['id']?>" class="btn btn-info btn-sm"> <i class="fa fa-arrow-up"></i> Active</a>
+                                            <a href="status.php?id=<?=$row['id']?>&cat=categories&active=active" class="btn btn-info btn-sm"> <i class="fa fa-arrow-up"></i> Active</a>
                                         <?php
                                             }?>
-                                        <a href="" class="btn btn-warning btn-sm"> <i class="fa fa-pencil-square-o"></i> Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm"> <i class="fa fa-trash-o"></i> Delete</a>
+                                        <a href="edit_category.php?id=<?=$row['id']?>&cat=cat" class="btn btn-warning btn-sm"> <i class="fa fa-pencil-square-o"></i> Edit</a>
+                                        <a href="delete.php?id=<?=$row['id']?>&cat=cat" class="btn btn-danger btn-sm"> <i class="fa fa-trash-o"></i> Delete</a>
                                     </td>
                                 </tr>
                             <?php }?>

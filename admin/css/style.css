@@ -6477,3 +6477,14 @@ header.blue-bg .search:focus {
 .is-sidebar-nav-open #main-content{
     margin-left: 0px;
 }
+
+.error{
+    background: #FF5858;
+    color: #FFF;
+    display: block;
+    width: 100%;
+    font-family: tahoma;
+    padding: 5px;
+    border-radius: 0 0 4px 4px;
+    margin-top: -3px;
+}

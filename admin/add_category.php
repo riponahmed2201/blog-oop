@@ -25,10 +25,8 @@
 
                 <form action="" method="POST">
                     <div class="form-group row">
-                        <label for="category_name" class="col-sm-4 col-form-label">Category Name</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="category_name" class="form-control"  placeholder="Category Name">
-                        </div>
+                        <label for="category_name">Category Name</label>
+                        <input type="text" name="category_name" id="category_name" data-validation="required" class="form-control"  placeholder="Category Name">
                     </div>
                     <div class="form-group">
                         <div class="row">

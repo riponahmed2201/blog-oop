@@ -38,7 +38,8 @@ session_start();
     <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
 <!--right slidebar-->
 <link href="css/slidebars.css" rel="stylesheet">
-
+    <!--  summernote -->
+    <link href="assets/summernote/dist/summernote.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 
 <link href="css/style.css" rel="stylesheet">
@@ -314,6 +315,17 @@ session_start();
                 <ul class="sub">
                     <li <?= $page == 'add_category.php' ? 'class="active"' : '' ?>><a  href="add_category.php">Add Category</a></li>
                     <li <?= $page == 'manage_category.php' ? 'class="active"' : '' ?>><a  href="manage_category.php">Manage Categories</a></li>
+                </ul>
+            </li>
+
+            <li class="sub-menu">
+                <a href="javascript:;" <?= $page == 'add_blog.php' ? 'class="active"' : '' ?> <?= $page == 'manage_blog.php' ? 'class="active"' : '' ?> >
+                    <i class="fa fa-laptop"></i>
+                    <span>Blog</span>
+                </a>
+                <ul class="sub">
+                    <li <?= $page == 'add_blog.php' ? 'class="active"' : '' ?>><a  href="add_blog.php">Add Blog</a></li>
+                    <li <?= $page == 'manage_blog.php' ? 'class="active"' : '' ?>><a  href="manage_blog.php">Manage Blog</a></li>
                 </ul>
             </li>
         </ul>

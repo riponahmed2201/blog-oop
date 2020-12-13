@@ -41,6 +41,21 @@ class Category
         $result =  mysqli_query(Database::databaseConnection(),"SELECT * FROM `categories`");
         return $result;
     }
+    public function allActiveCategory(){
+        $result =  mysqli_query(Database::databaseConnection(),"SELECT * FROM `categories` WHERE `status` =1");
+        return $result;
+    }
+
+    public function allActivePost(){
+        $result =  mysqli_query(Database::databaseConnection(),"SELECT * FROM `blogs` WHERE `status` =1 ORDER  BY `id` DESC");
+        return $result;
+    }
+
+    public function searchPost($search){
+        $result =  mysqli_query(Database::databaseConnection(),"SELECT * FROM `blogs` WHERE `content` LIKE '%$search%' and `status` =1 ORDER  BY `id` DESC");
+        return $result;
+    }
+
     public function selectRaw($id = ''){
         $result =  mysqli_query(Database::databaseConnection(),"SELECT * FROM `categories` WHERE `id` = '$id'");
         return $result;
@@ -58,4 +73,13 @@ class Category
         $result =  mysqli_query(Database::databaseConnection(),"DELETE FROM `categories` WHERE `id` = '$id'");
         return $result;
     }
+    public function singlePost($id){
+        $result =  mysqli_query(Database::databaseConnection(),"SELECT * FROM `blogs` WHERE `id` = '$id'");
+        return $result;
+    }
+    public function catPost($id){
+        $result =  mysqli_query(Database::databaseConnection(),"SELECT * FROM `blogs` WHERE `status` = 1 and `category_id` = $id ORDER  BY `id` DESC ");
+        return $result;
+    }
+
 }
